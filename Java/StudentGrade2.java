@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 
 public class StudentGrade2 {
@@ -46,10 +45,53 @@ public class StudentGrade2 {
         }
 
         
-       
+        for (int count = 0; count < students; count++) {
+
+            positions[count] = 1;
+
+            for (int index = 0; index < students; index++) {
+
+                if (totals[index] > totals[count]) {
+                    positions[count]++;
+                }
+            }
+        }
+
+        
+        System.out.println("\n" + "============================================================");
+        System.out.println("STUDENT GRADE SUMMARY");
+        System.out.println("============================================================");
+
+        System.out.printf("%-12s", "STUDENT");
+
+    for (int index = 0; index < subjects; index++) {
+            System.out.printf("%8s", "SUB" + (index + 1));
+        }
+
+        System.out.printf("%10s%10s%8s%n", "TOTAL", "AVE", "POS");
+
+        System.out.println("============================================================");
+
+
+    for (int count = 0; count < students; count++) {
+
+            double average = (double) totals[count] / subjects;
+
+            System.out.printf("%-12s", "Student " + (count + 1));
+
+            for (int index = 0; index < subjects; index++) {
+                System.out.printf("%8d", scores[count][index]);
+            }
+
+            System.out.printf("%10d%10.2f%8d%n",
+                    totals[count], average, positions[count]);
+        }
+
+   
+
+   
+
 }
-
-
-
+ 
 }
         
